@@ -13,4 +13,4 @@ This site uses [Parcel.js](https://parceljs.org/) to compile assets and dependen
 The entry point to this project is `index.html` and Parcel.js will find everything from there to build the project.
 
 ## Development
-You should use VS Code with the **ESLint** and **Prettier** extensions installed. This will help to lint the code and find bugs that exist.
+You should use [Visual Studio Code](https://code.visualstudio.com/) with the **ESLint** and **Prettier** extensions installed. This will help to lint the code and find bugs that may exist.
