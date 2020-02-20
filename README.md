@@ -7,6 +7,7 @@
 ## Production Mode
 1. `npm run build`
 
+
 ## Bundler
 This site uses Parcel.js to compile assets and dependencies of any kind. It used to use Gulp but that's not needed.
 
