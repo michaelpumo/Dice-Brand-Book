@@ -1,0 +1,128 @@
+/* +++++++++++++++++++
++++ LAYOUT: COLOUR +++
++++++++++++++++++++ */
+
+.colour {
+    position: relative;
+    padding-bottom: 0;
+    min-height: 100vh;
+
+    &-hex {
+        p {
+            @extend %h3;
+        }
+    }
+
+    &-palette {
+        height: calc(2em * 6);
+        margin-top: 16em;
+
+        .container {
+            display: block;
+            height: 5em;
+        }
+
+        &-swatch {
+            @include transition(transform 0.5s $move-whip);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: -100%;
+            color: $white;
+
+            &:hover {
+                @include transform(translateY(-8em));
+
+                .word {
+                    @include transform(translateY(0%));
+                }
+
+                & ~ .colour-palette-swatch {
+                    @include transform(translateY(-8em));
+                }
+            }
+
+            .hex {
+                font-size: 2.4em;
+                display: block;
+                margin-top: 6rem;
+            }
+
+            .word {
+                @include transition(0.5s transform 0.25s $move-whip);
+                @include transform(translateY(100%));
+            }
+
+            &.black {
+                @include transform(translateY(-8em));
+                margin-top: calc(-2em * 6);
+                z-index: 1;
+            }
+            &.blue {
+                background-color: $blue;
+                margin-top: calc(-2em * 5);
+                z-index: 2;
+            }
+            &.yellow {
+                background-color: $yellow;
+                margin-top: calc(-2em * 4);
+                z-index: 3;
+                color: $black;
+            }
+            &.green {
+                background-color: $green;
+                margin-top: calc(-2em * 3);
+                z-index: 4;
+            }
+            &.purple {
+                background-color: $purple;
+                margin-top: calc(-2em * 2);
+                z-index: 5;
+            }
+            &.red {
+                background-color: $red;
+                margin-top: calc(-2em * 1);
+                z-index: 6;
+            }
+        }
+
+        &-tint {
+            height: 2em;
+            background: $white;
+            margin: 0;
+
+            &.ten { opacity: 0.1; }
+            &.twenty { opacity: 0.2; }
+            &.thirty { opacity: 0.3; }
+            &.forty { opacity: 0.4; }
+            &.sixty { opacity: 0.6; }
+            &.eighty { opacity: 0.8; }
+        }
+    }
+
+    @include break(medium) {
+        &-palette {
+            margin-top: 32em;
+
+            &-swatch {
+                &:hover {
+                    @include transform(translateY(-24em));
+
+                    & ~ .colour-palette-swatch {
+                        @include transform(translateY(-24em));
+                    }
+                }
+
+                .hex {
+                    font-size: 6.4em;
+                    margin-top: 17rem;
+                }
+
+                &.black {
+                    @include transform(translateY(-24em));
+                }
+            }
+        }
+    }
+}

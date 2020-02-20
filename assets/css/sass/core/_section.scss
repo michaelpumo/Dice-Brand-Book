@@ -1,0 +1,131 @@
+/* ++++++++++++++++++++
++++ LAYOUT: SECTION +++
+++++++++++++++++++++ */
+
+// A section is a grouping of content, typically with a header, possibly with a footer. A '.section' with a '.container' results in a consistent paddings, margins and max-width for content while allowing for full width background colors.
+
+.section {
+    @extend %section;
+
+    &.dark,
+    &.primary {
+        color: $white;
+    }
+
+    &.light { background-color: $white; }
+    &.grey { background-color: $grey90; }
+    &.dark {
+        background-color: $black;
+    }
+    &.primary { background-color: $blue; }
+
+    &-intro {
+        @extend %flex;
+        margin-bottom: 8em;
+    }
+
+    &-header {
+        width: 100%;
+
+        h2 {
+            font: $bold 1em/1.5 $font-header;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding-top: 0.3em;
+        }
+    }
+
+    &-summary {
+        p {
+            @include heading($scale, 2);
+            line-height: 1.1;
+
+            & + p {
+                text-indent: 1.5em;
+            }
+        }
+    }
+
+    &-summary-bigger {
+        font-size: calc( ( ( 1.8 - 1.8 * 0.2 ) * 1em ) + ( 1.8 * 1vw ) ) !important;
+        line-height: 1.1;
+    }
+
+    &-footnote {
+        &-icon {
+            @extend %transition;
+            font-size: 1rem;
+            vertical-align: super;
+        }
+
+        &-content {
+            font-size: 1em;
+            line-height: 1.1;
+        }
+    }
+
+    @include break(medium) {
+        &-summary {
+            p {
+                @include heading($scale, 1);
+            }
+        }
+    }
+
+    @include break(large) {
+        &-intro {
+            margin-bottom: 16em;
+        }
+
+        &-summary {
+            p {
+                @include heading($scale, 1);
+            }
+        }
+
+        &-footnote {
+            &-content {
+                width: 50%;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.container {
+    @extend %container;
+
+    &.small { max-width: $two-thirds-column; }
+
+    &.light,
+    &.grey,
+    &.dark,
+    &.primary {
+        padding: $gap;
+
+        @include break(small) {
+            padding: $gap * 2;
+        }
+
+        @include break(large) {
+            border-radius: $corner;
+            max-width: $page-width - $gap * 4;
+        }
+    }
+
+    &.dark,
+    &.primary {
+        color: $white;
+    }
+
+    &.light { background-color: $white; }
+    &.grey { background-color: $grey90; }
+    &.dark { background-color: $grey20; }
+    &.primary { background-color: $blue; }
+
+    @include break(medium) {
+            & + * {
+                margin-top: $gap * 8;
+            }
+    }
+}

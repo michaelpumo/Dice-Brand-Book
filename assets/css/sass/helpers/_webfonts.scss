@@ -1,0 +1,30 @@
+//+++++++++++++++++++++++++
+//+++ HELPERS: WEBFONTS +++
+//+++++++++++++++++++++++++
+
+@font-face {
+    font-family: 'Favorit';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../webfonts/favorit-regular.woff2') format('woff2'),
+        url('../webfonts/favorit-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Favorit';
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+    src: url('../webfonts/favorit-bold.woff2') format('woff2'),
+        url('../webfonts/favorit-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Times New Roman';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../webfonts/times-new-roman.woff2') format('woff2'),
+        url('../webfonts/times-new-roman.woff') format('woff');
+}

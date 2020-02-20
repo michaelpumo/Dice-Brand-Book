@@ -1,0 +1,32 @@
+/* +++++++++++++++++++
++++ LAYOUT: TABLES +++
++++++++++++++++++++ */
+
+.content {
+    table {
+        box-shadow: inset 0 0 0 1px $grey80;
+        display: inline-block;
+        font-size: 1rem;
+        height: auto !important;
+        max-width: 100%;
+        overflow-x: auto;
+        width: auto !important;
+    }
+
+    th, td {
+        border: 1px solid $grey80;
+        min-width: 140px;
+        padding: $gap / 4 $gap / 2;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    thead td,
+    tfoot td,
+    th {
+        background: $green-20;
+        border: 1px solid $green;
+        color: $white;
+        font-weight: $normal;
+    }
+}

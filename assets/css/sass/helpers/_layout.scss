@@ -1,0 +1,32 @@
+//+++++++++++++++++++++++
+//+++ HELPERS: LAYOUT +++
+//+++++++++++++++++++++++
+
+//=======================================
+// Breakpoints
+//=======================================
+
+@mixin break($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+@mixin break-between($breakpoint1, $breakpoint2) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint1)) and (max-width: map-get($breakpoints, $breakpoint2) - 1) {
+        @content;
+    }
+}
+
+//=======================================
+// Columns
+//=======================================
+
+@mixin columns($properties) {
+    @each $prefix in -moz-column, -webkit-column, column {
+        #{$prefix}s: $properties;
+        #{$prefix}-gap: $gap * 2;
+    }
+}

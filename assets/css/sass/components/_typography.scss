@@ -1,0 +1,217 @@
+/* +++++++++++++++++++++++
++++ LAYOUT: TYPOGRAPHY +++
++++++++++++++++++++++++ */
+
+.typography {
+    &-specimen {
+        &-line {
+            @include transition(transform 2s ease);
+            background-repeat: repeat;
+            background-size: auto 100%;
+            height: 7vh;
+            position: relative;
+            width: fit-content;
+            @include transform(translateX(-50%));
+
+            img {
+                height: 200%;
+                max-width: none;
+                width: auto;
+                opacity: 0;
+            }
+
+            &:nth-child(1) { background-image: url('../images/favorit-1.png'); margin-bottom: 46px }
+            &:nth-child(2) { background-image: url('../images/favorit-2.png'); margin-bottom: 46px }
+            &:nth-child(3) { background-image: url('../images/favorit-3.png'); margin-bottom: 46px }
+            &:nth-child(4) { background-image: url('../images/favorit-4.png'); margin-bottom: 46px }
+            &:nth-child(5) { background-image: url('../images/favorit-5.png'); }
+
+            &.left {
+                @include animation(120s marquee 0s linear infinite);
+
+                &:hover {
+                    @include transform(translateX(-40%));
+                }
+            }
+
+            &.right {
+                @include animation(120s marquee 0s linear infinite reverse);
+
+                &:hover {
+                    @include transform(translateX(-60%));
+                }
+            }
+        }
+    }
+
+    &-primary {
+        margin-bottom: 8em;
+
+        &-switch {
+            margin-bottom: 2em;
+
+            li {
+                float: left;
+                margin-right: 1em;
+            }
+
+            label {
+                @include transition-ease(color);
+                cursor: pointer;
+                font-size: 1.1em;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    &-grid {
+        grid-template-columns: repeat(auto-fill, minmax(4em, auto));
+        grid-gap: 1px;
+        text-align: center;
+        position: relative;
+
+        &.uppercase { text-transform: uppercase; }
+        &.lowercase { text-transform: lowercase; }
+
+        span {
+            font-size: 1.5em;
+            line-height: 0;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        &-panel {
+            outline: solid 1px $black;
+            height: 0;
+            line-height: 0;
+            padding-bottom: 50%;
+            padding-top: 50%;
+
+            &:after {
+                @include transform(translate(-50%, -50%));
+                @include heading($scale, 11);
+                color: $black;
+                content: attr(data-letter);
+                left: 50%;
+                line-height: 0.8;
+                letter-spacing: -0.01em;
+                max-width: none;
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                visibility: hidden;
+            }
+
+            &:hover {
+                &:after {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &-secondary {
+        margin-bottom: 4em;
+
+        p {
+            font-size: 20vw;
+            font-family: $font-secondary;
+            overflow-wrap: normal;
+            word-wrap: normal;
+            line-height: 0.9;
+        }
+
+        .word {
+            @include transform(translateY(100%));
+        }
+
+        .superscript {
+            font-size: 1.2rem;
+            position: absolute;
+        }
+    }
+
+    .radio-uppercase:checked {
+        & ~ .typography-primary-switch .toggle-uppercase {
+            font-weight: $bold;
+        }
+
+        & ~ .typography-grid {
+            text-transform: uppercase;
+        }
+    }
+
+    .radio-lowercase:checked {
+        & ~ .typography-primary-switch .toggle-lowercase {
+            font-weight: $bold;
+        }
+
+        & ~ .typography-grid {
+            text-transform: lowercase;
+        }
+    }
+
+    @include break(medium) {
+        &-specimen {
+            &-line {
+                height: 15vh;
+            }
+        }
+
+        &-grid {
+            grid-template-columns: repeat(auto-fill, minmax(6em, auto));
+
+            &-panel {
+                span {
+                    font-size: 2em;
+                }
+
+                &:after {
+                    content: attr(data-name);
+                    font-size: 16vw;
+                }
+            }
+        }
+
+        &-secondary {
+            p {
+                font-size: 16vw;
+            }
+        }
+    }
+
+    @include break(large) {
+        &-primary {
+            padding: 0 8em;
+        }
+
+        &-secondary {
+            padding: 0 8em;
+
+            .superscript {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    @include break(xlarge) {
+        &-primary {
+            margin-bottom: 16em;
+        }
+
+        &-secondary {
+            margin-bottom: 8em;
+
+            p {
+                font-size: 13vw;
+            }
+        }
+
+        &-grid {
+            grid-template-columns: repeat(13, 1fr);
+        }
+    }
+}

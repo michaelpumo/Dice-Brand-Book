@@ -1,0 +1,100 @@
+
+/* +++++++++++++++++
++++ LAYOUT: MAIN +++
++++++++++++++++++ */
+
+// Main is the high level container of content, in between the site header and footer
+
+.main {
+    display: block;
+    margin: 0;
+
+    &-header {
+        @extend %flex;
+        align-items: center;
+        background: $black;
+        color: $white;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+
+        &-arrow {
+            @include transform(translateX(-50%));
+            bottom: 15vh;
+            left: 50%;
+            position: absolute;
+
+            span {
+                @include animation(2s scroll 4s $move-whip infinite normal);
+                font-size: 2em;
+                display: block;
+                @include transform(translateY(-100%));
+            }
+        }
+
+        .container {
+            margin-bottom: 0;
+        }
+
+        &-video {
+            @extend %full-screen;
+        }
+
+        &-logo {
+            @include transform(translate(-50%, -50%));
+            left: 50%;
+            position: absolute;
+            top: 50%;
+
+            .logo {
+                @include transform(translateY(100%));
+                width: 64px;
+                height: 64px;
+                margin: auto;
+            }
+        }
+
+        &-title {
+            text-align: center;
+
+            h1 {
+                @extend %h3;
+            }
+
+            span {
+                @include transform(translateY(100%));
+                display: inline-block;
+            }
+        }
+    }
+
+    &-footer {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+
+        &-heading {
+            @include transform(translateY(-50%));
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            left: 0;
+
+            h2 {
+                line-height: 1.2;
+            }
+        }
+    }
+
+    @include break(medium) {
+        &-header {
+            &-logo {
+                .logo {
+                    width: 128px;
+                    height: 128px;
+                }
+            }
+        }
+    }
+}

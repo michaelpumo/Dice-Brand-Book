@@ -1,0 +1,50 @@
+/* +++++++++++++++++++
++++ LAYOUT: HEADER +++
++++++++++++++++++++ */
+
+// Site header bar
+.header {
+    mix-blend-mode: difference;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: map-get($zindex, header);
+
+    &-logo {
+        display: block;
+        padding: $gap;
+        margin: auto;
+        width: $gap * 4.5;
+    }
+
+    &-nav {
+        bottom: 0;
+        display: block;
+        display: none;
+        left: 0;
+        position: fixed;
+        padding: $gap;
+    }
+
+    @include break(medium) {
+        &-logo {
+            padding: $gap * 2;
+
+            .logo {
+                height: 4em;
+                width: 4em;
+            }
+        }
+    }
+}
+
+// Navigation items in the header and footer
+.nav-item {
+    display: block;
+
+    &-link {
+        @extend %text-hover;
+        display: block;
+        padding: $gap / 2;
+    }
+}

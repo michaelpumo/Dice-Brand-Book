@@ -1,0 +1,170 @@
+/* +++++++++++++++++++++++++
++++ LAYOUT: VIBRATION +++
++++++++++++++++++++++++++ */
+
+.vibration {
+    padding-bottom: 0;
+
+    .section-intro {
+        z-index: 10;
+    }
+
+    &-animation {
+        color: $white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        &-video {
+
+        }
+
+        &-quote {
+            @include transform(translateY(-50%));
+            position: absolute;
+            top: 50%;
+            width: 100%;
+
+            .container {
+                max-width: 90em;
+            }
+        }
+
+        &-text {
+            @extend %h3;
+            @include transform(scaleY(1.25));
+            font-family: $font-secondary;
+            letter-spacing: 0.075em;
+            line-height: 1.125;
+        }
+    }
+
+    &-frequency {
+        margin: 25vw auto;
+
+        .grid-3 {
+            margin-top: 1em;
+            display: none;
+        }
+    }
+
+    &-grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 1px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        span {
+            font-size: 1.5em;
+            line-height: 0;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        &-panel {
+            outline: solid 1px $black;
+            height: 0;
+            line-height: 0;
+            padding-bottom: 50%;
+            padding-top: 50%;
+
+            &:nth-child(1):after { background-image: url('../images/DICE_Vibrations_1.png'); }
+            &:nth-child(2):after { background-image: url('../images/DICE_Vibrations_2.png'); }
+            &:nth-child(3):after { background-image: url('../images/DICE_Vibrations_3.png'); }
+            &:nth-child(4):after { background-image: url('../images/DICE_Vibrations_4.png'); }
+            &:nth-child(5):after { background-image: url('../images/DICE_Vibrations_5.png'); }
+            &:nth-child(6):after { background-image: url('../images/DICE_Vibrations_6.png'); }
+            &:nth-child(7):after { background-image: url('../images/DICE_Vibrations_7.png'); }
+            &:nth-child(8):after { background-image: url('../images/DICE_Vibrations_8.png'); }
+            &:nth-child(9):after { background-image: url('../images/DICE_Vibrations_9.png'); }
+            &:nth-child(10):after { background-image: url('../images/DICE_Vibrations_10.png'); }
+
+            &:after {
+                @include transform(translate(-50%, -50%));
+                left: 50%;
+                pointer-events: none;
+                content: '';
+                position: absolute;
+                top: 50%;
+                visibility: hidden;
+                width: 100%;
+                padding-bottom: 100%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                z-index: -1;
+            }
+
+            &:hover {
+                &:after {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    @include break(medium) {
+        &-animation {
+            &-text {
+                @include heading($scale, 3);
+            }
+        }
+
+        &-frequency {
+            padding: 0 8em;
+        }
+
+        &-grid {
+            &-panel {
+                &:after {
+                    width: 75%;
+                    padding-bottom: 75%;
+                }
+            }
+        }
+    }
+
+    @include break(large) {
+        &-frequency {
+            .grid-3 {
+                display: grid;
+            }
+
+            &-low,
+            &-mid,
+            &-high {
+                display: block;
+                font: $normal 1rem/1.5 $font-header;
+                letter-spacing: 0.1em;
+                padding-top: 0.3em;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            &-low {
+                text-align: left;
+            }
+
+            &-high {
+                text-align: right;
+            }
+        }
+
+        &-grid {
+            grid-template-columns: repeat(10, 1fr);
+        }
+    }
+
+    @include break(xlarge) {
+        &-frequency {
+            padding: 0 16em;
+        }
+
+        &-grid {
+            span {
+                font-size: 2em;
+            }
+        }
+    }
+}

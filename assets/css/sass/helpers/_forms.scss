@@ -1,0 +1,97 @@
+//++++++++++++++++++++++
+//+++ HELPERS: FORMS +++
+//++++++++++++++++++++++
+
+%form-input {
+    @extend %transition;
+    color: $black;
+    border-radius: $corner;
+    border: $line solid $grey80;
+    font: $normal 1em/1.5 $font-body;
+    height: 2.5em;
+    padding: 0 $gap;
+    width: 100%;
+
+    &:disabled {
+        background-color: $grey90;
+    }
+}
+
+form {
+    font: 1rem $font-body;
+
+    p { font: 1em $font-body; }
+}
+
+input,
+textarea,
+select {
+    @extend %form-input;
+}
+
+[type="text"],
+[type="number"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="time"],
+[type="search"],
+[type="tel"],
+[type="url"],
+[type="email"],
+[list],
+textarea,
+select {
+    background: $white;
+    outline: none;
+
+    &:focus {
+        border-color: $blue;
+    }
+}
+
+textarea {
+    resize: vertical;
+    padding: $gap / 2 $gap;
+    height: auto;
+    min-height: $gap * 8;
+}
+
+[type="color"],
+[type="file"] {
+    border: none;
+    line-height: 1;
+    padding: 0;
+}
+
+[type="file"] {
+    height: auto;
+}
+
+label {
+    font: $normal 1em/1.5 $font-body;
+    display: block;
+
+    & + input,
+    & + textarea,
+    & + select { margin-top: $gap / 4; }
+}
+
+legend {
+    width: 100%;
+}
+
+[type="checkbox"],
+[type="radio"] {
+    float: left;
+    height: $gap * 1.5;
+    margin-right: $gap / 2;
+    width: auto;
+
+    & + label {
+        display: inline;
+        font-style: normal;
+    }
+}

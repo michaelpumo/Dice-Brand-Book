@@ -1,0 +1,58 @@
+/* ++++++++++++++++++++
++++ LAYOUT: CONTENT +++
+++++++++++++++++++++ */
+
+// Content is the section of the page that contains body copy, typically from a WYSIWYG area. This gets all the post styling such as blockquotes and lists.
+
+.content {
+    @extend %font-body;
+
+    // Lists
+    ol, ul {
+        padding-left: $gap * 1.2;
+    }
+
+    li + li {
+        margin: $gap / 2 auto 0;
+    }
+
+    ol li {
+        list-style: decimal;
+
+        ol li { list-style-type: lower-roman; }
+        ul li { list-style-type: circle; }
+    }
+
+    ul li {
+        list-style: disc;
+
+        ul li { list-style-type: circle; }
+        ol li { list-style-type: decimal; }
+    }
+
+    a {
+        @extend %text-hover;
+        text-decoration: underline;
+    }
+
+    // Media
+    img {
+        border-radius: $corner;
+    }
+
+    .fluid-width-video-wrapper {
+        border-radius: $corner;
+        overflow: hidden;
+    }
+
+    pre {
+        background: $grey95;
+        padding: 0.5em;
+        overflow-x: auto;
+    }
+
+    code {
+        background-color: $grey95;
+        font-family: monospace;
+    }
+}

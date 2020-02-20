@@ -1,0 +1,11 @@
+/* ++++++++++++++++++
++++ LAYOUT: VOICE +++
+++++++++++++++++++ */
+
+.voice {
+    padding-bottom: 4em;
+
+    @include break(medium) {
+        padding-bottom: 8em;
+    }
+}

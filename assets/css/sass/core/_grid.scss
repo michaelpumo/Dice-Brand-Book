@@ -1,0 +1,70 @@
+/* +++++++++++++++++
++++ LAYOUT: GRID +++
++++++++++*+++++++ */
+
+.grid-1 {
+    @extend %flex;
+
+    @supports (display: grid) {
+        display: grid;
+        grid-gap: $gap * 2;
+        grid: 1fr / 1fr;
+        grid-auto-flow: row dense;
+        grid-template-rows: min-content;
+    }
+
+    > * {
+        flex: 1 17em;
+        margin: $gap * 2 $gap;
+
+        @supports (display: grid) {
+            margin: 0;
+        }
+    }
+}
+
+.grid-2 {
+    @extend .grid-1;
+
+    @include break(medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid-3 {
+    @extend .grid-1;
+
+    @include break(medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include break(large) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-4 {
+    @extend .grid-1;
+
+    @include break(medium) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include break(large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.fill-space {
+    @include break(small) {
+        > *:nth-last-child(odd):first-child {
+            grid-column: span 2;
+        }
+    }
+
+    @include break(medium) {
+        > *:nth-last-child(odd):first-child {
+            grid-column: span 1;
+        }
+    }
+}

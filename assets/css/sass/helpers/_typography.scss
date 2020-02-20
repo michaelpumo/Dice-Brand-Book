@@ -1,0 +1,151 @@
+
+//+++++++++++++++++++++++++++
+//+++ HELPERS: TYPOGRAPHY +++
+//+++++++++++++++++++++++++++
+
+//=======================================
+// Helpers
+//=======================================
+
+// Placeholders
+@mixin placeholder {
+    :-ms-input-placeholder { @content };
+    :-moz-input-placeholder { @content };
+    ::-moz-input-placeholder { @content };
+    ::-webkit-input-placeholder { @content };
+}
+
+// Cursor highlighting
+@mixin selection($background, $color) {
+    @each $prefix in '::-moz-selection', '::selection' {
+        #{$prefix} {
+            background: $background;
+            color: $color;
+        }
+    }
+}
+
+// This is the highlight colour used with the cursor
+@include selection($background: $blue-80, $color: $black);
+
+// Form placeholder color
+@include placeholder {
+    color: currentColor;
+    opacity: 0.4;
+}
+
+
+//=======================================
+// Defaults
+//=======================================
+
+%font-header {
+    font: $normal 1em/1 $font-header;
+}
+
+%font-body {
+    font: $normal 1.5em/1.25 $font-body;
+
+    @include break(medium) {
+        font: $normal 2em/1.25 $font-body;
+    }
+}
+
+%font-footnote {
+    font: $normal 0.9em/1.4 $font-footnote;
+}
+
+%font-label {
+    font: $normal 1em/1.2 $font-body;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+//=======================================
+// Settings
+//=======================================
+
+@mixin heading($scale, $exponent) {
+    $value: 1;
+    @for $i from 1 through $exponent {
+        $value: $value * $scale;
+    }
+    font-size: calc( ( ( #{$value} - #{$value} * 0.2 ) * 1em ) + ( #{$value} * 1vw ) );
+}
+
+%h1 {
+    @include heading($scale, 5);
+}
+
+%h2 {
+    @include heading($scale, 4);
+}
+
+%h3 {
+    @include heading($scale, 3);
+    line-height: 1.1;
+}
+
+%h4 {
+    @include heading($scale, 2);
+    line-height: 1.1;
+}
+
+%h5 {
+    @include heading($scale, 1);
+    line-height: 1.2;
+}
+
+%h6 {
+    font: $bold 1em/1.2 $font-header;
+}
+
+// Create a tooltip when an element has the "data-tooltip" attribute
+[data-tooltip] {
+	position: relative;
+}
+
+// Hide the tooltip content by default
+[data-tooltip]:before,
+[data-tooltip]:after {
+	@extend %transition;
+	opacity: 0;
+    bottom: 100%;
+    left: 50%;
+    position: absolute;
+    visibility: hidden;
+}
+
+// Position tooltip above the element
+[data-tooltip]:before {
+    @include transform(translateX(-50%));
+	text-align: center;
+    background-color: $grey20;
+    border-radius: $corner;
+    color: $white;
+    content: attr(data-tooltip);
+    font-family: $font-body;
+    font-size: 1rem;
+    line-height: normal;
+    margin-bottom: 5px;
+    padding: $gap / 4 $gap / 2;
+}
+
+// Make a triangle
+[data-tooltip]:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $grey20;
+    content: "";
+    font-size: 0;
+    line-height: 0;
+    margin-left: -5px;
+    width: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+	visibility: visible;
+    opacity: 1;
+}

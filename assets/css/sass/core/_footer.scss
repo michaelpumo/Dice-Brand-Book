@@ -1,0 +1,15 @@
+/* +++++++++++++++++++
++++ LAYOUT: FOOTER +++
++++++++++++++++++++ */
+
+// Layout of the site footer
+
+.footer {
+    z-index: map-get($zindex, footer);
+
+    &-navigation {
+        a {
+            @extend %text-hover;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+/* +++++++++++++++++++
++++ LAYOUT: COLOUR +++
++++++++++++++++++++ */
+
+.colour {
+    position: relative;
+    padding-bottom: 0;
+
+    &-hex {
+        p {
+            @extend %h3;
+        }
+    }
+
+    &-palette {
+        height: calc(5em * 7);
+
+        .container {
+            display: block;
+            height: 5em;
+            padding-top: 1.25em;
+        }
+
+        &-swatch {
+            @include transition(transform 0.5s $move-whip);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: -100%;
+            color: $white;
+
+            &:hover {
+                @include transform(translateY(-8em));
+
+                & ~ .colour-palette-swatch {
+                    @include transform(translateY(-8em));
+                }
+            }
+
+            .hex {
+                font-size: 1em;
+                display: block;
+                margin-bottom: 2.5rem;
+            }
+
+            .codes {
+                p {
+                    font-size: 1em;
+                    display: block;
+                }
+            }
+
+            .word {
+                @include transform(translateY(100%));
+            }
+
+            &.black {
+                background-color: $black;
+                margin-top: calc(-5em * 6);
+                z-index: 1;
+            }
+            &.blue {
+                background-color: $blue;
+                margin-top: calc(-5em * 5);
+                z-index: 2;
+            }
+            &.yellow {
+                background-color: $yellow;
+                margin-top: calc(-5em * 4);
+                z-index: 3;
+                color: $black;
+            }
+            &.green {
+                background-color: $green;
+                margin-top: calc(-5em * 3);
+                z-index: 4;
+            }
+            &.purple {
+                background-color: $purple;
+                margin-top: calc(-5em * 2);
+                z-index: 5;
+            }
+            &.red {
+                background-color: $red;
+                margin-top: calc(-5em * 1);
+                z-index: 6;
+            }
+        }
+
+        &-tint {
+            height: 2em;
+            background: $white;
+            margin: 0;
+
+            &.ten { opacity: 0.1; }
+            &.twenty { opacity: 0.2; }
+            &.thirty { opacity: 0.3; }
+            &.forty { opacity: 0.4; }
+            &.sixty { opacity: 0.6; }
+            &.eighty { opacity: 0.8; }
+        }
+    }
+
+    @include break(medium) {
+        &-palette {
+            &-swatch {
+                &:hover {
+                    @include transform(translateY(-16em));
+
+                    & ~ .colour-palette-swatch {
+                        @include transform(translateY(-16em));
+                    }
+                }
+
+                .hex {
+                    font-size: 2em;
+                }
+
+                .codes {
+                    p {
+                        font-size: 2em;
+                        display: block;
+                    }
+                }
+            }
+
+            &-tint {
+                height: 4em;
+            }
+        }
+    }
+}

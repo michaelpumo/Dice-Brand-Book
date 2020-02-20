@@ -1,0 +1,81 @@
+//++++++++++++++++
+//+++ SETTINGS +++
+//++++++++++++++++
+
+// Set the color scheme
+$blue-80: tint($blue, 80%);
+$blue-60: tint($blue, 60%);
+$blue-40: tint($blue, 40%);
+$blue-20: tint($blue, 20%);
+
+$yellow-80: tint($yellow, 80%);
+$yellow-60: tint($yellow, 60%);
+$yellow-40: tint($yellow, 40%);
+$yellow-20: tint($yellow, 20%);
+
+$green-80: tint($green, 80%);
+$green-60: tint($green, 60%);
+$green-40: tint($green, 40%);
+$green-20: tint($green, 20%);
+
+$purple-80: tint($purple, 80%);
+$purple-60: tint($purple, 60%);
+$purple-40: tint($purple, 40%);
+$purple-20: tint($purple, 20%);
+
+$red-80: tint($red, 80%);
+$red-60: tint($red, 60%);
+$red-40: tint($red, 40%);
+$red-20: tint($red, 20%);
+
+// Set common colors
+$body-color: $white;
+
+$font-primary: 'Favorit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-secondary: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$font-footnote: 'Favorit Mono Trial Std', 'Favorit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Typography
+$font-header: $font-primary;
+$font-body: $font-primary;
+$font-quote: $font-secondary;
+
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+$scale: 1.33;
+
+// Layout
+$gap: 1em;
+$corner: 0;
+$line: 1px;
+$page-width: 90em;
+$shadow: 0 4px 8px rgba($black, 0.1);
+
+// Sets width of fixed columns
+$half-column: $page-width / 2;
+$third-column: $page-width / 3;
+$two-thirds-column: ($page-width / 3) * 2;
+$fourth-column: $page-width / 4;
+$three-fourths-column: ($page-width / 4) * 3;
+$sixth-column: $page-width / 6;
+$five-sixths-column: ($page-width / 6) * 5;
+
+// Keep track of z-indexes to avoid z-index: 999999999;
+$zindex: (
+    popup: 50,
+    header: 40,
+    rnav: 30,
+    footer: 20,
+    overlay: 10,
+    highlight: -10,
+);
+
+// Breakpoints
+$breakpoints: (
+    small: 425px,
+    medium: 768px,
+    large: 1024px,
+    xlarge: 1440px,
+);
