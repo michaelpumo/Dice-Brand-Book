@@ -1,8 +1,8 @@
-import gulp from 'gulp'
-import concat from 'gulp-concat'
-import notify from 'gulp-notify'
-import plumber from 'gulp-plumber'
-import sass from 'gulp-sass'
+const gulp = require('gulp')
+const concat = require('gulp-concat')
+const notify = require('gulp-notify')
+const plumber = require('gulp-plumber')
+const sass = require('gulp-sass')
 
 const onError = err => {
   notify.onError({
@@ -14,7 +14,6 @@ const onError = err => {
   this.emit('end')
 }
 
-// Compile css files from sass
 gulp.task('sass', () => {
   return gulp
     .src('src/assets/css/sass/**/*.scss')
@@ -23,7 +22,6 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('dist/assets/css'))
 })
 
-// Compile js files from plugins
 gulp.task('scripts', () => {
   return gulp
     .src('src/assets/js/plugins/*.js')
@@ -45,7 +43,7 @@ gulp.task('videos', () => {
 })
 
 gulp.task('html', () => {
-  return gulp.src('index.html').pipe(gulp.dest('build'))
+  return gulp.src('src/index.html').pipe(gulp.dest('dist'))
 })
 
 gulp.task('fonts', () => {

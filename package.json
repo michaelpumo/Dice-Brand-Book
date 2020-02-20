@@ -4,7 +4,7 @@
   "private": true,
   "description": "Dice Brand Book",
   "scripts": {
-    "build": "rm -rf build && gulp build"
+    "build": "rm -rf dist && gulp build"
   },
   "author": "Ben Hartley",
   "devDependencies": {
