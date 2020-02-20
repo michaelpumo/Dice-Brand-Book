@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="HandheldFriendly" content="True">
 
-        <link href="./assets/css/style.css" rel="stylesheet" media="all">
-        <link rel="preload" href="./assets/webfonts/favorit-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link href="./scss/style.scss" rel="stylesheet" media="all">
+        <link rel="preload" href="./webfonts/favorit-regular.woff2" as="font" type="font/woff2" crossorigin>
 
         <title>DICE Brand Book</title>
+
         <meta name="description" content="">
         <meta name="author" content="">
 
         <meta property="og:title" content="DICE Brand Book">
-        <meta property="og:image" content="./assets/og-img.png">
         <meta property="og:description" content="">
 
         <meta name="twitter:title" content="">
@@ -25,17 +25,17 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="#000">
         <meta name="apple-mobile-web-app-title" content="">
-        <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="./meta/apple-touch-icon.png">
 
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="theme-color" content="#000">
-        <link rel="manifest" href="./assets/manifest.json">
+        <link rel="manifest" href="./manifest.json">
 
-        <link rel="icon" type="image/png" href="./assets/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16">
-        <link rel="mask-icon" href="./assets/svg/safari-pinned-tab.svg" color="#000">
-        <link rel="shortcut icon" href="./assets/favicon.ico">
-        <meta name="msapplication-config" content="./assets/browserconfig.xml">
+        <link rel="icon" type="image/png" href="./meta/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="./meta/favicon-16x16.png" sizes="16x16">
+        <link rel="mask-icon" href="./meta/safari-pinned-tab.svg" color="#000">
+        <link rel="shortcut icon" href="./meta/favicon.ico">
+        <meta name="msapplication-config" content="./browserconfig.xml">
     </head>
 
     <body>
@@ -44,7 +44,7 @@
         <main id="main" class="main clearfix">
             <header class="main-header">
                 <video autoplay preload muted loop class="main-header-video">
-                    <source src="./assets/videos/intro.mp4" type="video/mp4">
+                    <source src="./videos/intro.mp4" type="video/mp4">
                 </video>
 
                 <div class="container small intro-animation">
@@ -92,7 +92,7 @@
 
                     <figure id="vibration-animation" class="vibration-animation">
                         <video id="intro-video" preload muted loop class="vibration-animation-video">
-                            <source src="./assets/videos/vibrations-2.mp4" type="video/mp4">
+                            <source src="./videos/vibrations-2.mp4" type="video/mp4">
                         </video>
 
                         <!-- <blockquote class="vibration-animation-quote">
@@ -267,7 +267,7 @@
                 <div class="container">
                     <figure class="voice-video">
                         <video id="voice-video" preload loop>
-                            <source src="./assets/videos/voice.mp4" type="video/mp4">
+                            <source src="./videos/voice.mp4" type="video/mp4">
                         </video>
 
                         <div id="voice-button" class="video-button"></div>
@@ -289,19 +289,19 @@
 
                     <div id="specimen" class="typography-specimen">
                         <div class="typography-specimen-line left">
-                            <img src="./assets/images/favorit-1.png" alt="">
+                            <img src="./images/favorit-1.png" alt="">
                         </div>
                         <div class="typography-specimen-line right">
-                            <img src="./assets/images/favorit-2.png" alt="">
+                            <img src="./images/favorit-2.png" alt="">
                         </div>
                         <div class="typography-specimen-line left">
-                            <img src="./assets/images/favorit-3.png" alt="">
+                            <img src="./images/favorit-3.png" alt="">
                         </div>
                         <div class="typography-specimen-line right">
-                            <img src="./assets/images/favorit-4.png" alt="">
+                            <img src="./images/favorit-4.png" alt="">
                         </div>
                         <div class="typography-specimen-line left">
-                            <img src="./assets/images/favorit-5.png" alt="">
+                            <img src="./images/favorit-5.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -372,7 +372,7 @@
 
                     <div class="typography-showcase">
                         <video preload autoplay muted loop>
-                            <source src="./assets/videos/typography-2.mp4" type="video/mp4">
+                            <source src="./videos/typography-2.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -391,16 +391,16 @@
 
                 <div class="image-gallery">
                     <video preload autoplay muted loop>
-                        <source src="./assets/videos/image.mp4" type="video/mp4">
+                        <source src="./videos/image.mp4" type="video/mp4">
                     </video>
                 </div>
             </section>
 
             <footer id="main-footer" class="section dark main-footer">
                 <figure class="container main-footer-video">
-                    <video id="outro-video" loop preload muted>
-                        <source src="./assets/videos/outro.mp4" type="video/mp4">
-                    </video>
+                    <!-- <video id="outro-video" loop preload muted>
+                        <source src="./videos/outro.mp4" type="video/mp4">
+                    </video> -->
 
                     <div class="main-footer-heading">
                         <div class="container small">
@@ -419,8 +419,8 @@
             });
         </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/noframework.waypoints.min.js'></script>
-        <script type="text/javascript" src="./assets/js/app.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/noframework.waypoints.min.js'></script> -->
+        <script type="text/javascript" src="./js/app.js"></script>
     </body>
 </html>
