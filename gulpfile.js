@@ -1,67 +1,59 @@
-'use strict';
+import gulp from 'gulp'
+import concat from 'gulp-concat'
+import notify from 'gulp-notify'
+import plumber from 'gulp-plumber'
+import sass from 'gulp-sass'
 
-// Load plugins
-var gulp  = require('gulp'),
-    concat = require('gulp-concat'),
-    notify = require("gulp-notify"),
-    plumber = require('gulp-plumber'),
-    sass   = require('gulp-sass')
-;
+const onError = err => {
+  notify.onError({
+    title: 'Gulp',
+    subtitle: 'Failure!',
+    message: 'Error: <%= error.message %>',
+  })(err)
 
-var onError = function(err) {
-    notify.onError({
-        title:    "Gulp",
-        subtitle: "Failure!",
-        message:  "Error: <%= error.message %>",
-    })(err);
-
-    this.emit('end');
-};
+  this.emit('end')
+}
 
 // Compile css files from sass
-gulp.task('sass', function() {
-    return gulp.src('assets/css/sass/**/*.scss')
-    .pipe(plumber({errorHandler: onError}))
+gulp.task('sass', () => {
+  return gulp
+    .src('src/assets/css/sass/**/*.scss')
+    .pipe(plumber({ errorHandler: onError }))
     .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(gulp.dest('build/assets/css'));
-});
+    .pipe(gulp.dest('dist/assets/css'))
+})
 
 // Compile js files from plugins
-gulp.task('scripts', function() {
-    return gulp.src('assets/js/plugins/*.js')
-    .pipe(plumber({errorHandler: onError}))
+gulp.task('scripts', () => {
+  return gulp
+    .src('src/assets/js/plugins/*.js')
+    .pipe(plumber({ errorHandler: onError }))
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('build/assets/js'));
-});
-
-gulp.task('svg', function() {
-    return gulp.src('assets/svg/*.svg')
-    .pipe(gulp.dest('build/assets/svg'));
-});
-
-gulp.task('images', function() {
-    return gulp.src('assets/images/*')
-    .pipe(gulp.dest('build/assets/images'));
-});
-
-gulp.task('videos', function() {
-    return gulp.src('assets/videos/*.mp4')
-    .pipe(gulp.dest('build/assets/videos'));
-});
-
-gulp.task('html', function() {
-    return gulp.src('index.html')
-    .pipe(gulp.dest('build'));
-});
-
-gulp.task('fonts', function() {
-    return gulp.src('assets/webfonts/*')
-    .pipe(gulp.dest('build/assets/webfonts'));
+    .pipe(gulp.dest('dist/assets/js'))
 })
 
-gulp.task('favicon', function() {
-    return gulp.src('assets/favicon*')
-    .pipe(gulp.dest('build/assets'));
+gulp.task('svg', () => {
+  return gulp.src('src/assets/svg/*.svg').pipe(gulp.dest('dist/assets/svg'))
 })
 
-exports.build = gulp.series('svg', 'images', 'videos', 'sass', 'scripts', 'fonts', 'favicon', 'html');
+gulp.task('images', () => {
+  return gulp.src('src/assets/images/*').pipe(gulp.dest('dist/assets/images'))
+})
+
+gulp.task('videos', () => {
+  return gulp.src('src/assets/videos/*.mp4').pipe(gulp.dest('dist/assets/videos'))
+})
+
+gulp.task('html', () => {
+  return gulp.src('index.html').pipe(gulp.dest('build'))
+})
+
+gulp.task('fonts', () => {
+  return gulp.src('src/assets/webfonts/*').pipe(gulp.dest('dist/assets/webfonts'))
+})
+
+gulp.task('favicon', () => {
+  return gulp.src('src/assets/favicon*').pipe(gulp.dest('dist/assets'))
+})
+
+exports.build = gulp.series('svg', 'images', 'videos', 'sass', 'scripts', 'fonts', 'favicon', 'html')
