@@ -1,22 +1,31 @@
 {
-    "name": "honeycomb",
-    "version": "1.0.0",
-    "private": true,
-    "description": "Honeycomb is the starting point for website builds",
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@bitbucket.org:hartley_design/honeycomb.git"
-    },
-    "scripts": {
-        "build": "rm -rf build && gulp build"
-    },
-    "author": "Ben Hartley",
-    "devDependencies": {
-        "gulp": "4.0.2",
-        "gulp-concat": "2.6.1",
-        "gulp-notify": "3.2.0",
-        "gulp-plumber": "1.2.1",
-        "gulp-sass": "4.0.2",
-        "gulp-uglify": "3.0.2"
-    }
+  "name": "dice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dice Brand Book",
+  "scripts": {
+    "build": "rm -rf build && gulp build"
+  },
+  "author": "Ben Hartley",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "gulp": "4.0.2",
+    "gulp-concat": "2.6.1",
+    "gulp-notify": "3.2.0",
+    "gulp-plumber": "1.2.1",
+    "gulp-sass": "4.0.2",
+    "gulp-uglify": "3.0.2",
+    "prettier": "^1.19.1"
+  }
 }
