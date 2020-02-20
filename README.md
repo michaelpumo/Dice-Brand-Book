@@ -1,11 +1,11 @@
 # Dice Brand Book
 
 ## Development Mode
-* `npm install`
-* `npm run dev`
+1. `npm install`
+2. `npm run dev`
 
 ## Production Mode
-* `npm run build`
+1. `npm run build`
 
 ## Bundler
 This site uses Parcel.js to compile assets and dependencies of any kind. It used to use Gulp but that's not needed.
